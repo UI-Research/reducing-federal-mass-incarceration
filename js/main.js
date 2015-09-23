@@ -1,9 +1,33 @@
-var PINK = "#ec008c"
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
+var version = getQueryVariable("version")
+var PINK = (version=="a") ? "#ec008c" : "#ec6109"
+if(version == "b"){
+  d3.select("body").classed("versionB", true)
+}
+else{
+  d3.select("body").classed("versionA", true)
+}
+console.log(PINK)
+
+
+
+
+// var PINK = "#ec008c"
 var BLUE = "#1696d2"
 var DARK_GREY = "#868686"
 var LIGHT_GREY = "#efefef"
 var PRISONERS = d3.format(",f")
-var DATE = d3.time.format("%b, %Y")
+var DATE = d3.time.format("%bt, %Y")
 var PERCENT = d3.format("%")
 var isMobile = (d3.select("#header-pinned").style("display") == "none")
 var stateMenu = (isMobile) ? ".styled-select.state.mobile" : ".styled-select.state:not(.mobile)";
@@ -116,8 +140,8 @@ function drawTooltip(offender, reduction, amount){
   d3.select(".summary #amount")
     .text(function(){
       var state = d3.select(stateMenu + " select").node().value;
-      var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Jan2023.val")).text();
-      var valBase = d3.select((".xLabel.Jan2023.val")).text();
+      var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Sept2023.val")).text();
+      var valBase = d3.select((".xLabel.Sept2023.val")).text();
       valBase = parseFloat(valBase.replace(",",""));
       val2022 = parseFloat(val2022.replace(",",""));
       numDiff = val2022 - valBase
@@ -230,7 +254,7 @@ function drawGraphic(state){
   // console.log(isMobile)
   if(isMobile){ height = height/2}
 
-  var parseDate = d3.time.format("%b-%y").parse;
+  var parseDate = d3.time.format("%m/%d/%Y").parse;
 
 
   var x = d3.time.scale()
@@ -253,10 +277,10 @@ function drawGraphic(state){
       .tickFormat(function(d){
         return d/1000
       });
-  var yRight = (window.innerWidth - margin.left - margin.right > 1500) ? (window.innerWidth - margin.left - margin.right-1500-10) : -10;
+  var yRight = (window.innerWidth - margin.left - margin.right > 1500) ? (window.innerWidth - margin.left - margin.right-1500-5) : -5;
   d3.select("#yLabel")
     .style("right", yRight + "px")
-    .text(function(){ var yText = (isMobile) ? "Statewide prison pop. (thousands)" : "Statewide prison population (thousands)"; return yText;})
+    .text(function(){ var yText = (isMobile) ? "Federal prison pop. (thousands)" : "Federal prison population (thousands)"; return yText;})
   var line = d3.svg.line()
       .defined(function(d) { return d.series != 0; })
       .x(function(d) { return x(d.date); })
@@ -646,7 +670,7 @@ function drawGraphic(state){
                 var dx = parseInt(d3.select(this).attr("x"))
                 return dx+15
               })
-            d3.select(".xLabel.last").text("2023 (baseline)")
+            d3.select(".xLabel.last").text("Sept, 2023 (baseline)")
               // console.log(terminalSeries)
               d3.select(d3.select(".xLabel.last").node().parentNode)
                 .append("line")
@@ -1003,7 +1027,7 @@ function drawGraphic(state){
 
       d3.select(".defaultSummary #defAmount")
       .text(function(){
-        var val2022 = d3.select((".xLabel.Jan2023.val")).text();
+        var val2022 = d3.select((".xLabel.Sept2023.val")).text();
         return val2022;
       });
       }

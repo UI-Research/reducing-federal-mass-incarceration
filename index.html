@@ -28,7 +28,7 @@
     <div id="header-pinned" class="no-touch is-visible">
         <div class="content">
             <a target="_blank" href="http://www.urban.org" title="Home" rel="home" class="site-logo"></a>
-            <div class="title"><a href="http://www.urban.org/features" class="title-linkback">Features</a> <span>: :</span> The Prison Population Forecaster</div>
+            <div class="title"><a href="http://www.urban.org/features" class="title-linkback">Features</a> <span>: :</span> The Prison Population Forecaster // Federal Prison Population</div>
             <div class="share-icons">
                 <div class="shareThisP">
                     <a href="#" onclick="toggle_visibility('shareBox');">
@@ -79,7 +79,7 @@
    </select>
   </div>
 <div id = "menuContainer">
-    <div id = "stateName">USA</div>
+    <div id = "stateName">Federal Prison Population <span id = "long_looking">Looking for the state prison population forecaster?</span><span id = "short_looking">Looking for the state forecaster?</span></div>
     <div class="state styled-select">
     <img id = "stateImg" src = "images/state_arrow.png"/>
    <select>
@@ -118,7 +118,10 @@
     <option value = "fifty">Reduce by 50%</option>
  </select>
 </div>
-
+<div class = "fed_state">
+  <div id = "fed_version">FEDERAL</div>
+  <div id = "state_version">STATES</div>
+</div>
 <a class="refresh-data" href=#><div class="refresh">
 <span class="at_a11y">Refresh filters</span>
     </div>  </a>
@@ -141,7 +144,7 @@
   <span class = "proj">+</span><p class = "offender proj"></p>
   <span class = "proj">+</span><p class = "reduction proj"></p>
   <span class = "proj">+</span><p class = "amount proj"></p>
-  <p class = "summary">This scenario would bring <span id = "state">the aggregate</span> prison population down <span id = "amount"></span> by 2023, compared with the baseline projection.</p>
+  <p class = "summary">This scenario would bring <span id = "state">the aggregate</span> prison population down <span id = "amount"></span> by September 2023, compared with the baseline projection.</p>
   <p class = "defaultSummary">This is the baseline projection. If <span id = "defState">the USA does</span> nothing, the prison population will be <span id = "defAmount">206,184</span> in 2023</p>
 
 
