@@ -140,6 +140,7 @@ function drawTooltip(offender, reduction, amount){
   d3.select(".summary #amount")
     .text(function(){
       var state = d3.select(stateMenu + " select").node().value;
+      console.log(offender, reduction, amount)
       var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Sept2023.val")).text();
       var valBase = d3.select((".xLabel.Sept2023.val")).text();
       valBase = parseFloat(valBase.replace(",",""));
@@ -254,7 +255,7 @@ function drawGraphic(state){
   // console.log(isMobile)
   if(isMobile){ height = height/2}
 
-  var parseDate = d3.time.format("%m/%d/%Y").parse;
+  var parseDate = d3.time.format("%m/%d/%y").parse;
 
 
   var x = d3.time.scale()
