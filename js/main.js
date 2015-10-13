@@ -613,7 +613,7 @@ function drawGraphic(state){
             })
             .text(function(d){
               if(d.date !== null){
-                return DATE(d.date);
+                return DATE(d.date).replace(",",".");
               }
             })
             .attr("x", function(d){ return x(d.date) })
@@ -671,7 +671,7 @@ function drawGraphic(state){
                 var dx = parseInt(d3.select(this).attr("x"))
                 return dx+15
               })
-            d3.select(".xLabel.last").text("Sept, 2023 (baseline)")
+            d3.select(".xLabel.last").text("Sept. 2023 (baseline)")
               // console.log(terminalSeries)
               d3.select(d3.select(".xLabel.last").node().parentNode)
                 .append("line")
@@ -890,7 +890,7 @@ function drawGraphic(state){
         d3.select(".summary #state")
           .text(function(){
             if(state == "USA"){
-              return "the aggregate"
+              return "the federal"
             }
             return stateName + "\'s";
           })
@@ -978,7 +978,7 @@ function drawGraphic(state){
 
         d3.select(".xLabel.first.date")
           .text(function(d){
-            return DATE(firstDate);
+            return DATE(firstDate).replace(",",".");
           });
         d3.select(".xLabel.first.val")
           .text(function(d){
