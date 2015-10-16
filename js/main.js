@@ -1020,7 +1020,7 @@ function drawGraphic(state){
       d3.select(".defaultSummary #defState")
       .text(function(){
           if(state == "USA"){
-            return "the states do"
+            return "the federal government does"
           } else{
             return d3.select("option[value="+state+"]").text() + " does"
           }

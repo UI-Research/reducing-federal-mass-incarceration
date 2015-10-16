@@ -20,7 +20,7 @@
     <meta property="og:url" content=" http://urbn.is/massincarceration">
 
 
-<title>Reducing Mass Incarceration Requires Far-Reaching Reforms</title>
+<title>How to reduce the federal prison population</title>
 <link rel="icon" target="_blank" href="favicon.ico" type="image/x-icon">
 
 <body>
@@ -79,7 +79,7 @@
    </select>
   </div>
 <div id = "menuContainer">
-    <div id = "stateName">Federal Prison Population <span id = "long_looking">Looking for the state prison population forecaster?</span><span id = "short_looking">Looking for the state forecaster?</span></div>
+    <div id = "stateName">Federal Prison Population</div>
     <div class="state styled-select">
     <img id = "stateImg" src = "images/state_arrow.png"/>
    <select>
@@ -90,14 +90,14 @@
 <div class="offender-type styled-select filter mobileHide hideAll">
  <select>
     <option value = "">Select offense/admission type</option>
-    <option value = "violent">Violent offenses</option>
+    <option value = "all">All offenses</option>
     <option value = "drug">Drug trafficking offenses</option>
     <option value = "weapon">Weapon offenses</option>
     <option value = "immigration">Immigration offenses</option>
-    <option value = "revocation">Revocations</option>
     <option value = "sex">Sex offenses</option>
     <option value = "fraud">Fraud offenses</option>
-    <option value = "all">All offenses</option>
+    <option value = "violent">Violent offenses</option>
+    <option value = "revocation">Revocations</option>
  </select>
 </div>
 
@@ -119,8 +119,7 @@
  </select>
 </div>
 <div class = "fed_state">
-  <div id = "fed_version">FEDERAL</div>
-  <div id = "state_version">STATES</div>
+  <a href = "http://webapp.urban.org/reducing-mass-incarceration/"><div id = "fed_version">View the state Prison Population Forecaster <span><img src="images/right-arrow.png"/></span></div></a>
 </div>
 <a class="refresh-data" href=#><div class="refresh">
 <span class="at_a11y">Refresh filters</span>
@@ -132,7 +131,7 @@
 <div class = "mobile hideChart">HIDE CHART</div>
 <div id = "mobileClose" class = "mobile hideAll mobileHide">CLOSE OPTIONS <img src = "images/close.png"/></div>
 <div id = "mobileTitle" class = "mobile hideAll">Prison Population Forecaster</div>
-<div id = "mobileStateName" class = "mobile hideAll">All 15 States</div>
+<div id = "mobileStateName" class = "mobile hideAll">Federal Prison Population</div>
 
 <!-- <div id = "helpText">
  Use the menus above to filter the projections by admission/offense type, policy change, and percent reduction. Mouse over a line for details.
@@ -145,7 +144,7 @@
   <span class = "proj">+</span><p class = "reduction proj"></p>
   <span class = "proj">+</span><p class = "amount proj"></p>
   <p class = "summary">This scenario would bring <span id = "state">the federal</span> prison population down <span id = "amount"></span> by September 2023, compared with the baseline projection.</p>
-  <p class = "defaultSummary">This is the baseline projection. If <span id = "defState">the USA does</span> nothing, the prison population will be <span id = "defAmount">206,184</span> in 2023</p>
+  <p class = "defaultSummary">This is the baseline projection. If <span id = "defState">the federal government does</span> nothing, the prison population will be <span id = "defAmount">206,184</span> in 2023</p>
 
 
 </div>
@@ -157,92 +156,62 @@
   <p><a href = "#">Link to third section</a></p>
 </div>
 -->
-<h5>Federal Prison Population</h5>
-<h1>Reducing Mass Incarceration Requires Far-Reaching Reforms</h1>
-<h3>Ryan King, Bryce Peterson, Brian Elderbroom, and Elizabeth Pelletier</h3>
+<h1>How to reduce the federal prison population</h1>
+<h3>Ryan King, Bryce Peterson, Brian Elderbroom, and Samuel A. Taxy</h3>
 
-<p class="lede">Roughly <a target="_blank" href="http://www.bjs.gov/content/pub/pdf/cpus13.pdf">2.2 million people are locked up in prison or jail; 7 million are under correctional control</a>, which includes parole and probation; and more than <a target="_blank" href="http://www.bjs.gov/index.cfm?ty=pbdetail&amp;iid=5239">$80 billion is spent on corrections</a> every year.</p>
+<p class="lede">The federal prison system is by far the nation’s single largest jailer, with a total of <a href = "https://www.bop.gov/about/statistics/population_statistics.jsp" target="_blank">205,795</a> inmates at the beginning of October 2015. That’s roughly 50,000 more people in custody than in the second-largest prison jurisdiction, Texas.</p>
 
-<p class="lede">Research has shown that <a target="_blank" href="http://www.nap.edu/catalog/18613/the-growth-of-incarceration-in-the-united-states-exploring-causes">policy changes over the past four decades have put more people in prison and kept them there longer</a>, leading to exponential growth in the prison population even while crime has dropped to historic lows.</p>
+<p class="lede">Though the states collectively incarcerate the majority of people in prison in the United States—nearly <a href = "http://www.bjs.gov/content/pub/pdf/p14.pdf" target="_blank">1.4 million</a> as of 2014—any conversation about mass incarceration must consider the federal prison population. <a href = "http://www.urban.org/research/publication/stemming-tide-strategies-reduce-growth-and-cut-cost-federal-prison-system" target = "_blank">The growth, size, and cost of the federal system jeopardize the safety and security of inmates and staff, restrict the ability to provide programs designed to reduce recidivism, and crowd out other fiscal priorities.</a></p>
 
-<p class="lede">But despite <a target="_blank" href="http://www.nytimes.com/2015/04/28/us/politics/being-less-tough-on-crime-is-2016-consensus.html">widespread agreement that mass incarceration is a serious problem</a>, the national conversation is light on details about what it will take to achieve meaningful and sustainable reductions. What do states actually need to do roll back their prison populations by 10 percent? 20 percent? 50 percent?</p>
+<p class="lede">At a time when Washington, DC, has been defined by partisan gridlock, federal prison reform appears to have captured the attention of lawmakers as a result of rapidly expanding consensus that the federal prison system is too large, too costly, and in dire need of comprehensive reform. </p>
 
 <hr class="divider"/>
 
-<p>To advance the policy conversation, decisionmakers and the public need to know the impact of potential policy changes. Our Prison Population Forecaster can estimate the effect, by state, of policies that aim to reduce prison admissions and length of stay for the most common types of offenses.</p>
+<p><a href = "https://www.whitehouse.gov/blog/2015/07/15/president-obama-our-criminal-justice-system-isnt-smart-it-should-be" target = "_blank">President Obama recently named criminal</a> justice reform as a main policy priority for the end of his second term. Members of Congress have introduced bipartisan bills in the Senate and the House that would reform the federal sentencing system, increase opportunities to earn time off of sentences, and invest in treatment and reentry services. And many 2016 presidential hopefuls are decrying the number of incarcerated people who have been convicted of low-level, nonviolent drug crimes, arguing that our nation would be better served by investments in public health initiatives and preventive policies such as education and job creation.</p>
 
-<p>The tool currently uses data from 15 states, representing nearly 40 percent of the national prison population, to forecast population trends and project the impact of changes on rates of admission or lengths of stay in prison. </p>
+<p>After decades of growth, the federal prison population declined in 2013 and 2014 and is projected to drop another 4 percent through 2023. Though this reduction will provide some relief to the bloated federal prison system, <a href = "http://www.urban.org/research/publication/consequences-growth-federal-prison-population" target ="_blank">it is not sufficient to relieve severe overcrowding, particularly in the highest security facilities where inmates have the greatest need for intensive programming and present the greatest security threats.</a></p>
 
-<p>Using the tool, we can see that in some states, limiting prison admissions to only new crimes and diverting parole and probation revocations will substantially reduce the number of people behind bars. Other states can stem prison growth by tackling how they address drug and property offenses. Still others may discover that modest reductions in time served for violent offenses are necessary.</p>
+<p>Our Federal Prison Population Forecaster, an extension of <a href = "http://webapp.urban.org/reducing-mass-incarceration/" target = "_blank">our work estimating the effect of state prison reforms</a>, uses Federal Bureau of Prisons (BOP) data and incorporates trends and recent changes in the federal criminal justice system to forecast population trends and the impact of changes to rates of admission or lengths of stay. This tool is designed to highlight the unique drivers of the federal prison population and the types of policy changes that will be necessary to reduce the BOP population. All numbers reported in this feature (unless otherwise noted) are from the end of fiscal year 2014, and all projections are of impacts through 2023.</p>
 
-<p>This forecasting tool paves the way for a more productive conversation about the need for tailored reforms that address the unique drivers of mass incarceration in each jurisdiction. </p>
+<h2>Federal and state prison populations differ significantly</h2>
 
-<h2>Rethinking who goes to prison and how long they stay</h2>
+<p><a href = "http://webapp.urban.org/reducing-mass-incarceration/" target = "_blank">Our previous analysis of state prison data</a> revealed that efforts to roll back the use of prison will require ambitious policy changes, and that those policy changes will vary widely across states. There is no one-size-fits-all sentencing reform package that will address the drivers of imprisonment in every state. Some states, like Alabama and Oklahoma, can significantly reduce their prison populations by cutting admissions for drug offenses. Other states—like Michigan and New York, which have already passed substantial drug sentencing reforms in recent years—must focus on property and violent offenses to achieve further meaningful reductions.</p>
 
-<p>After nearly 40 years of unabated growth, the state prison population has begun to level off in some states and decline in many others. Many states have reduced prison admissions for drug possession and other less serious offenses, taking a critical first step in alleviating the harms caused by incarceration. The positive effect of these reforms on individuals, families, and communities should not be understated. These reforms have helped stem the tide of prison growth but they will not be sufficient to further cut the prison population dramatically. </p>
+<p>Similarly, the federal prison system has a population profile very different from that of any state. The Federal Bureau of Prisons holds roughly 14 percent of the 1.6 million people in prison nationwide. <a href = "http://www.bjs.gov/content/pub/pdf/p14.pdf" target = "_blank">While half of those housed in state prisons have been convicted of a violent offense</a>, fewer than 5 percent of federal prisoners’ most serious convictions were violent offenses.</p>
 
-<p>If the 15 states in our forecaster make no policy changes and current trends hold constant, the prison population in those states is forecasted to decline only 2 percent by the end of 2021.</p>
+<p>Across states, the primary offense for 16 percent of the prison population is a drug conviction, weapons convictions are minimal, and immigration convictions are nonexistent. Conversely, in the federal system, drug offenses are the primary conviction for almost half (49 percent) of the prison population and immigration and weapons offenses account for another 25 percent.</p>
 
-<p>Accelerating this decline to make a real dent in mass incarceration will require us to fundamentally rethink whom we send to prison and how long they stay. For example, <span class="scenario" id="ALL_STATES-all-new-fifty">cutting total admissions in half for the 15 states in the forecaster (click to see this scenario)</span>—a lofty goal—would reduce their collective prison population by 37 percent through 2021. <span class="scenario" id="ALL_STATES-all-length-fifty">Halving lengths of stay</span> would cut the population by 39 percent. These scenarios include all offense types and are far beyond the scope of reforms being discussed at the state level. </p>
+<h2>Sending fewer people to prison for drug offenses could lead to meaningful reductions</h2>
 
-<h3>Drug offenses</h3>
+<p>Unlike any of the states, the federal prison system locks up a substantial number of people for drug offenses. <a href = "http://www.bjs.gov/content/pub/pdf/p14.pdf" target = "_blank">Nearly one in three people in prison for a drug offense in the United States is held in the federal system.</a> Thus, any efforts to reduce federal incarceration should start with drug offenses.</p>
 
-<p>Over the past few years, many states have begun to reform their laws and reduce the number of people admitted to prison for drug offenses. According to the Bureau of Justice Statistics, prison admissions for drug-related crimes <a target="_blank" href="http://www.bjs.gov/content/pub/pdf/p12tar9112.pdf">declined 22 percent</a> between 2006 and 2011. </p>
+<p>Much of the policy conversation at the federal level has focused on mandatory minimum sentences for drug trafficking, and the length of prison sentences in general. <span class="scenario" id="USA-drug-length-fifty">Cutting lengths of stay 50 percent for drug trafficking offenses would reduce the federal prison population 18 percent by 2023, compared with the baseline projection.</span></p>
 
-<p>Looking at all 15 states in the forecaster, <span class="scenario" id="ALL_STATES-drug-new-fifteen">another 15 percent reduction in drug admissions</span> would result in a prison population that is 2 percent smaller by the end of 2021 than the projected baseline population—in other words, it would be 2 percent smaller than if we did nothing. </p>
+<p>Far less attention has been paid to reducing admissions to prison for this population, despite the success that many states have had at diverting people arrested and convicted of drug offenses. This may be because 99.4 percent of new commitments to BOP for a drug offense were for trafficking. However, not all drug trafficking offenses are created equal, and less serious offenses can still result in long sentences.</p>
 
-<p><span class="scenario" id="ALL_STATES-drug-new-fifty">Cutting drug admissions in half</span> would shrink the prison population by 7 percent, or almost 33,000 inmates, by the end of 2021. <span class="scenario" id="ALL_STATES-drug-length-fifteen">Reducing lengths of stay for drug offenses by 15 percent</span> or <span class="scenario" id="ALL_STATES-drug-length-fifty">50 percent</span> would yield similar results. </p>
+<p>According to the US Sentencing Commission, while only 7 percent of those convicted of a drug offense received an enhanced sentence for playing an aggravating role, over half were convicted of an offense that carries a mandatory minimum penalty, and over one-third had such a penalty applied at sentencing. Further, sentence length for drug trafficking offenses is <a href = "http://www.ussc.gov/guidelines-manual/2014/2014-chapter-2-d" target = "_blank">directly tied to mandatory minimum penalties</a>, even if the offense of conviction does not itself carry a mandatory minimum penalty.</p>
 
-<p>These numbers underscore the message that tackling mass incarceration will require reforms that reduce admissions or lengths of stay for other offenses. <a target="_blank" href="http://www.bjs.gov/content/pub/pdf/p13.pdf">About 1 in 6 people in state prison is incarcerated for a drug conviction</a>, and far fewer are incarcerated for low-level drug offenses, such as possession. Even if every person in state prison for a drug offense were released today, mass incarceration would persist.</p>
+<p>Congress and the president should also explore alternatives to prison if they want to meaningfully reduce the federal prison population. Indeed, <span class="scenario" id="USA-drug-new-fifty">cutting admissions in half for drug trafficking offenses would reduce the federal prison population by 17 percent.</span></p>
 
-<h3>Other nonviolent offenses</h3>
+<h2>Tackling admissions and lengths of stay for weapons, immigration, and violent offenses</h2>
 
-<p>States have begun reforming sentencing policies for property offenses, a category that includes burglary, theft, and fraud. But these reforms, such as raising the felony-theft threshold, affect a small number of those convicted of the least serious property offenses. Policy changes that cut admissions and lengths of stay for a wider range of property offenses therefore hold great potential for reducing mass incarceration. For example, for the states in the forecaster, <span class="scenario" id="ALL_STATES-property-new-fifty">sending 50 percent fewer people to prison for property offenses</span> would have 1.5 times the impact of reducing <span class="scenario" id="ALL_STATES-drug-new-fifty">drug admissions by the same amount.</span> </p>
+<p>Though drug offenses account for nearly half the federal prison population, other offenses also represent important drivers of the BOP population. 
+<ul>
+  <li>Weapons offenses are the second most common offense type in the federal prison population. <span class="scenario" id="USA-weapon-length-fifty">Cutting lengths of stay for weapons offenses in half would reduce the federal prison population 7 percent.</span></li>
+  <li>Immigration is the third most common offense—making up 10 percent of the BOP population—but even a substantial policy change <span class="scenario" id="USA-immigration-new-fifty">that halved admissions would only reduce the prison population 4 percent.</span></li>
+  <li>Violent offenses, which are a primary driver of most state prison populations, barely register within the BOP. <span class="scenario" id="USA-violent-new-fifty">Cutting admissions for all violent offenses in half would reduce the prison population a mere 2 percent.</span></li>
+</ul>
+</p>
 
-<p>Looking at all nonviolent offenses (drug, property, and other), the forecaster projects that <span class="scenario" id="ALL_STATES-nonviolent-new-fifty">halving admissions</span> would cut the prison population by 23 percent by 2021. This is a significant change, resulting in 110,000 fewer people in prison in these 15 states. <span class="scenario" id="ALL_STATES-nonviolent-length-fifty">Reducing lengths of stay</span> for all nonviolent offenses would result in similar changes. </p>
+<h2>Federal system reforms should focus on drug offenses</h2>
 
-<h3>Parole and probation violations</h3>
-
-<p>Many states are also reconsidering how they address technical violations of probation and parole, such as failing a drug test. These changes may include restricting how long people stay in prison when they return for a technical violation, or diverting them from prison entirely. Building on these reforms holds the promise of significantly shrinking the prison population. For example, <span class="scenario" id="ALL_STATES-revocation-new-fifty">cutting in half the number of people sent to prison for a revocation</span> would result in a 14 percent reduction in the prison population of the forecaster states by the end of 2021.</p>
-
-    <img class="inline-chart" src="images/figures-01.png"/>
-
-<h3>Violent offenses</h3>
-
-<p>The estimates for all 15 states obscure important variation between states. Each state has a wide range of policies that affect length of prison sentences and eligibility for release. And the effects of reforms will vary widely. This is particularly true when exploring the effects of reducing admissions or lengths of stay for nonviolent versus violent offenses. </p>
-
-<p><a target="_blank" href="http://www.bjs.gov/content/pub/pdf/p13.pdf">More than half of people in state prisons are incarcerated for a violent offense</a>, so significantly reducing mass incarceration will require addressing lengths of stay for crimes that are unlikely to be eligible for prison diversion programs. </p>
-
-    <img class="inline-chart" src="images/figures-02.png"/>
-
-<p>In four of the states in our forecaster—<span class="scenario" id="MI-violent-length-fifteen">Michigan,</span> <span class="scenario" id="NJ-violent-length-fifteen">New Jersey,</span> <span class="scenario" id="NY-violent-length-fifteen">New York,</span> and <span class="scenario" id="RI-violent-length-fifteen">Rhode Island</span>—reducing lengths of stay for violent offenses by a modest 15 percent would result in a much larger drop in the prison population than reducing drug admissions by 50 percent. </p>
-
-<p>In New York, <a target="_blank" href="http://www.vera.org/sites/default/files/resources/downloads/drug-law-reform-new-york-city-summary-01.pdf">one of the first states to revisit its mandatory minimum penalties and create alternatives to incarceration</a>, <span class="scenario" id="NY-drug-new-fifty">sending 50 percent fewer people to prison for drug crimes</span> would result in only a 1 percent decline in the projected prison population through 2021. <span class="scenario" id="NY-violent-length-fifteen">Reducing lengths of stay for violent offenses by just 15 percent</span>, however, would reduce the population by 6 percent. </p>
-
-<h2>Is there any low-hanging fruit left? </h2>
-
-<p>In short: yes. While dramatically reducing the national prison population requires addressing the hard stuff—like long prison sentences and time served for violent offenses—reforms to drug laws and revocation policies will still go a long way in many states. </p>
-
-<p>For example, nonviolent offenses are a major driver of the prison population in Alabama, Kentucky, Missouri, Oklahoma, and Texas, so sending fewer people to prison for drug and property crimes would have a big impact on incarceration rates. Halving drug admissions would cut the prison population by nearly 10 percent in each of those states by the end of 2021. And a 50 percent reduction in admissions for all nonviolent crimes would cut at least a quarter off their populations (<span class="scenario" id="KY-nonviolent-new-fifty">nearly a third in Kentucky</span>). </p>
-
-    <img class="inline-chart" src="images/figures-03.png"/>
-
-<p>The policy reality in Missouri and Texas stands in even starker contrast to states such as <a target="_blank" href="http://sentencingproject.org/doc/publications/inc_Fewer_Prisoners_Less_Crime.pdf">New York and New Jersey</a>. In <span class="scenario" id="MO-revocation-new-fifty">Missouri</span> and <span class="scenario" id="TX-revocation-new-fifty">Texas,</span> reducing admissions for revocations of probation and parole supervision by 50 percent is projected to cut the prison population by nearly a quarter by the end of 2021. Given that many of these revocations are likely due to technical violations and not new crimes, there is plenty of low-hanging fruit to be picked for reform. </p>
-
-<h2>A combination of reforms will be necessary</h2>
-
-<p>The mass incarceration debate too often gets mired in false choices between addressing the problem on the front or back end (admissions versus length of stay) and questions about the relative impact of focusing on nonviolent or violent offenses, without a detailed understanding of how policy changes would affect the size of the prison population. </p>
-
-<p>Our forecasting tool sheds some light on the effects of potential reforms. However, no single policy change is sufficient to make meaningful reductions in the prison population, so policymakers will need to explore a combination of reforms. For now, our forecaster cannot model multiple scenarios simultaneously—such as what would happen if states cut admissions for drug offenses by 25 percent <em>and</em> for property offenses by 15 percent—but we plan to include this capability, more states, and demographic data in the next version.</p>
-
-<p>Pairing further reductions in admissions for drug and property offenses with reductions in lengths of stay for violent offenses is the surest way to meaningfully and sustainably reduce the prison population. The forecaster shines a bright light on that reality and drives home the point that significant across-the-board policy changes are necessary to reduce mass incarceration. </p>
-
+<p>Unlike in the states, drug offenses are a major driver of the federal prison system. Substantial reductions to the BOP population can be achieved by reforming sentencing law and policy for drug trafficking. Additionally, decreasing sentence lengths for weapons offenses can substantially reduce the federal prison population. Reforms that address both drug trafficking and weapons offenses, especially through a mix of incarceration alternatives and shorter lengths of stay, will have the greatest impact.</p>
 
 <div id="footer">
-<h2 style="font-size:1.25em">Methodology</h2>
-<a name = "embed"></a>
 
-<p><a href="methodology.html">View the full model methodology</a></p>
+<h2 style="font-size:1.25em">Methodology</h2>
+
+<p>The projections presented here are preliminary results from a microsimulation model developed for the Task Force by the Urban Institute. The baseline projections may be further refined, particularly in light of future changes in federal corrections or sentencing policy (such as the release of thousands of people convicted of drug trafficking offenses in November 2015). A more detailed methodology will be made available with the Task Force’s final report, due in winter 2016. For more information about this methodology, please e-mail <a href = "mailto:STaxy@Urban.org">Sam Taxy.</a></p>
 
 <hr class="divider"/>
 <h2 style="font-size:1.25em">Embed the Federal Prison Population Forecaster </h2>
@@ -254,8 +223,11 @@
 <h4 class="divider"/>
 
 <h2 style="font-size:1.25em; margin-top:2em;">Project Credits</h2>
+
+<p>The Federal Prison Population Forecaster was developed in collaboration with the congressionally established <a href = "http://www.colsontaskforce.org/" target = "_blank">Charles Colson Task Force on Federal Corrections.</a> The Task Force, a blue ribbon bipartisan panel, has been charged with developing practical, data-driven policy recommendations to reduce the size of the federal prison system and ensure that incarceration is reserved for individuals convicted of serious crimes</p>
+
 <h3>Research</h3>
-  <p class="credit"><a href="http://www.urban.org/author/ryan-king" target="_blank">Ryan King</a>, <a href="http://www.urban.org/author/bryce-peterson" target="_blank">Bryce Peterson</a>, <a href="http://www.urban.org/author/brian-elderbroom" target="_blank">Brian Elderbroom</a>, and <a href="http://www.urban.org/author/elizabeth-pelletier" target="_blank">Elizabeth Pelletier</a></p>
+  <p class="credit"><a href="http://www.urban.org/author/ryan-king" target="_blank">Ryan King</a>, <a href="http://www.urban.org/author/bryce-peterson" target="_blank">Bryce Peterson</a>, <a href="http://www.urban.org/author/brian-elderbroom" target="_blank">Brian Elderbroom</a>, and <a href="http://www.urban.org/author/samuel-taxy" target="_blank">Samuel A. Taxy</a></p>
 
   <h3>Development and Design</h3>
   <p class="credit"><a href="http://www.urban.org/author/benjamin-chartoff" target="_blank">Ben Chartoff</a> and <a href="http://www.urban.org/author/tim-meko" target="_blank">Tim Meko</a></p>
@@ -263,7 +235,7 @@
   <h3>Editorial</h3>
   <p class="credit"><a href="http://www.urban.org/author/serena-lei" target="_blank">Serena Lei</a> and <a href="http://www.urban.org/author/ashleigh-andrews-rich" target="_blank">Ashleigh Andrews Rich</a></p>
 
-  <p class="copy">Copyright &copy; <a href="http://www.urban.org" target="_blank">Urban Institute</a> August 2015. <a href="https://github.com/UrbanInstitute/reducing-mass-incarceration" target="_blank">View this on GitHub.</a>
+  <p class="copy">Copyright &copy; <a href="http://www.urban.org" target="_blank">Urban Institute</a> August 2015. <a href="https://github.com/UrbanInstitute/reducing-federal-mass-incarceration" target="_blank">View this on GitHub.</a>
   </div>
 
 </div>

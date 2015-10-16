@@ -95,7 +95,7 @@ body.versionB .summary, body.versionB .defaultSummary{
 .fed_state{
     position: fixed;
     top: 70px;
-    left: 790px;
+    left: 650px;
     height: 35px;
     background-color: #efefef;
 }
@@ -105,19 +105,20 @@ body.versionB .summary, body.versionB .defaultSummary{
     float: left;
     line-height: 15px;
     padding: 10px;
-    font-size: 14px;
+    padding-right: 24px;
+    font-size: 13px;
+    font-family: Georgia;
+    font-style: italic;
     color: #fff;
     cursor: pointer;
 }
-#state_version{
-    background-color: #efefef;
-    height: 15px;
-    float: right;
-    line-height: 15px;
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
+#fed_version span img{
+    position: absolute;
+    left: 272px;
+    top: 8px;
+    height: 19px;
 }
+
 @media (max-width: 1000px) and (min-width: 768px) {
   .styled-select:not(.state){
     width: 200px !important; 
@@ -133,7 +134,7 @@ body.versionB .summary, body.versionB .defaultSummary{
     left: 480px !important;
   }
   .fed_state{
-    left: 531px !important;
+    left: 389px !important;
   }
   #stateName #long_looking{
       display: none;
@@ -414,6 +415,9 @@ body {
 
 body p{
   line-height: 1.8em;
+}
+body li{
+  line-height: 1.8em;  
 }
 .lede{
   font-size: 1.2em;
@@ -1034,6 +1038,12 @@ font-size: 0.75em;
   width: 100%;
 
   margin-bottom: 15px;
+}
+
+#footer p{
+    font-size: 12px;
+    font-style: italic;
+    line-height: 19px;
 }
 
 textarea{
