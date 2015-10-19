@@ -1,13 +1,183 @@
-@media (max-width: 1000px) and (min-width: 550px) {
+
+
+.scrollFade{
+  opacity: 0;
+}
+#embed_logo{
+      position: fixed;
+    bottom: 10px;
+    left: 17px;
+}
+/*********** Start of A/B CSS **************/
+body.versionA .scenario{
+display: inline;
+text-decoration: none;
+background: url(../images/chart-icon-02.png) no-repeat right;
+background-repeat: no-repeat;
+padding-right: 20px;
+/*line-height: 1.5em;*/
+height: 20px;
+border-bottom: 3px solid #D0E9F4;
+box-shadow: inset 0 -5px 0 #D0E9F4;
+cursor: pointer;
+/*color: #000;*/
+
+}
+body.versionB .scenario{
+display: inline;
+text-decoration: none;
+background: url(../images/chart-icon-version_b.png) no-repeat right;
+background-repeat: no-repeat;
+padding-right: 20px;
+/*line-height: 1.5em;*/
+height: 20px;
+border-bottom: 3px solid #D0E9F4;
+box-shadow: inset 0 -5px 0 #D0E9F4;
+cursor: pointer;
+/*color: #000;*/
 
 }
 
-@media (max-width: 550px) and (min-width: 100px) {
+body.versionB .line.selected, body.versionB .line.menuSelected{
+  stroke: #ec008c !important;
+}
+body.versionA .line.selected, body.versionA .line.menuSelected{
+  stroke: #ec008c !important;
+  stroke-width: 2px ;
+  /*pointer-events: visible;  */
+}
+
+body.versionA .dot.selected, body.versionA .dot.menuSelected{
+  fill: #ec008c !important;
+  /*pointer-events: visible;*/
+}
+body.versionB .dot.selected, body.versionB .dot.menuSelected{
+  fill: #ec008c !important;
+  /*pointer-events: visible;*/
+}
+
+body.versionA #tooltip span.proj{
+  color: #ec008c;
+  float: left;
+  margin-right: 5px;
+}
+body.versionB #tooltip span.proj{
+  color: #ec008c;
+  float: left;
+  margin-right: 5px;
+}
+
+body.versionA .summary, body.versionA .defaultSummary{
+  width: 280px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ec008c !important;
+  margin-top: 20px;
+  line-height: 1em;
+}
+body.versionB .summary, body.versionB .defaultSummary{
+  width: 280px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ec008c;
+  margin-top: 20px;
+  line-height: 1em;
+}
+/*********** END of A/B CSS **************/
+
+
+
+.state.styled-select{
+  display: none !important;
+}
+#stateName #long_looking{
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 170px;
+    color: #1696d2;
+}
+#stateName #short_looking{
+    display: none;
+    font-size: 12px;
+    margin-left: 10px;
+    color: #1696d2;
+}
+.fed_state{
+    position: fixed;
+    left: 310px;
+    height: 35px;
+        height: 35px;
+    background-color: #efefef;
+}
+#fed_version{
+    background-color: #1696d2;
+    height: 15px;
+    float: left;
+    line-height: 15px;
+    padding: 10px;
+    padding-right: 24px;
+    font-size: 13px;
+    font-family: Georgia;
+    font-style: italic;
+    color: #fff;
+    cursor: pointer;
+}
+#fed_version span img{
+    position: absolute;
+    left: 272px;
+    top: 8px;
+    height: 19px;
+}
+
+@media (max-width: 1000px) and (min-width: 768px) {
+  .styled-select:not(.state){
+    width: 200px !important; 
+  }
+  .styled-select:not(.state) select{
+    width: 160px !important;
+    font: 11px Lato !important;
+  }
+
+  .fed_state{
+    left: 389px !important;
+  }
+  #stateName #long_looking{
+      display: none;
+  }
+  #stateName #short_looking{
+      display: inline-block;
+  }
+  .refresh{
+    left: 690px !important;
+  }
+  #yLabel{
+    top: 40px !important;
+  }
+#tooltip h2{
+  font-size: 18px;
+}
+
+#tooltip p:not(.summary):not(.defaultSummary){
+
+  font-size: 14px;
+  line-height: 1em;
+}
+
+.summary, .defaultSummary{
+  font-size: 14px;
+  line-height: 1em;
+}
+  circle.dot{
+    /*display: none !important;*/
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 100px) {
     #loading{
       left: -20px !important;
       width: 120% !important;
     }
-    circle.dot, #header-pinned, .scrollFade, .xLabel.mid, .labelLine:not(.first):not(.last), #menuContainer, .projLabel, #title {
+    circle.dot, #header-pinned, .scrollFade, .xLabel.mid, .labelLine:not(.first):not(.last), #menuContainer, .projLabel {
       display: none !important;
     }
     #mobileTitle{
@@ -35,17 +205,17 @@
       left: 0px !important;
       background-color: white !important;
       /*height: 400px !importan;*/
+      border-bottom: none;
     }
     #yLabel{
       z-index: 9 !important;
-      right: -76px !important;
+      right: -75px !important;
       -webkit-transform: rotate(90deg);
       -moz-transform: rotate(90deg);
       -o-transform: rotate(90deg);
       -ms-transform: rotate(90deg);
-      transform: rotate(90deg);
-      width: 180px !important;
-      top: 240px !important;
+      transform: rotate(90deg);    width: 180px !important;
+      top: 240px !important
     }
     h1{
       font-size: 1.5em !important;
@@ -55,12 +225,18 @@
       left: 17px !important;
       margin-top: 210px;
     }
+    #footer{
+      display: none;
+      width: 86% !important;
+    }
 
     .styled-select{
       z-index: 100 !important;
     }
 
     #tooltip{
+      left: 0 !important;
+      top: 0 !important;
       background: none !important;
       top: 22% !important;
       z-index: 0;
@@ -205,7 +381,7 @@
     z-index: 29;
   }
   .hideChart{
-    display: block !important;
+    display: none !important;
     position: fixed;
     z-index: 30;
     left: calc(50% - 78px);
@@ -242,12 +418,14 @@ body {
   color: #666;
   font-weight: 400;
   margin-top: 0;
-  background-color: #fff;
   /*margin-right: 100px;*/
 }
 
 body p{
   line-height: 1.8em;
+}
+body li{
+  line-height: 1.8em;  
 }
 .lede{
   font-size: 1.2em;
@@ -277,7 +455,15 @@ font-weight: 400;
 font-size: 0.9em;
 text-transform: uppercase;
 color: #1696d2
-
+}
+h5{
+  font-weight: 400;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: -23px;
+  margin-top: 38px;
+  margin-left: 4px;
 }
 
 .inline-chart{
@@ -287,20 +473,7 @@ display: block;
 margin: 0 auto;
 }
 
-.scenario{
-display: inline;
-text-decoration: none;
-background: url(../images/chart-icon-02.png) no-repeat right;
-background-repeat: no-repeat;
-padding-right: 20px;
-/*line-height: 1.5em;*/
-height: 20px;
-border-bottom: 3px solid #D0E9F4;
-box-shadow: inset 0 -5px 0 #D0E9F4;
-cursor: pointer;
-/*color: #000;*/
 
-}
 .scenario:hover{
 background-color: #D0E9F4;
 }
@@ -323,13 +496,12 @@ background-color: #D0E9F4;
 }
 #yLabel{
   position: fixed;
+  right: -15px;
   font-size: 12px;
   font-weight: 600;
   font-style: italic;
-  width: 120px;
-  right: 4px !important;
-  top: 2px;
-  text-align: right;
+  width: 79px;
+  top: 40px;
 }
 .xLabel{
   opacity: 1;
@@ -347,7 +519,7 @@ background-color: #D0E9F4;
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 0px;
+  top: -20px;
   pointer-events: none;
 }
 #main-text{
@@ -417,11 +589,7 @@ background-color: #D0E9F4;
   stroke: #333 ;
   stroke-width: 2px;
 }
-.line.selected, .line.menuSelected{
-  stroke: #ec008c !important;
-  stroke-width: 2px ;
-  /*pointer-events: visible;  */
-}
+
 .line.highlighted{
   stroke: #868686;
   /*pointer-events: visible;*/
@@ -432,10 +600,6 @@ background-color: #D0E9F4;
 }
 .dot.noPolicy{
   fill: #333 ;
-}
-.dot.selected, .dot.menuSelected{
-  fill: #ec008c !important;
-  /*pointer-events: visible;*/
 }
 .dot.highlighted{
   fill: #868686;
@@ -483,9 +647,15 @@ background-color: #D0E9F4;
 select::-ms-expand {
  display: none !important;
 }
+    .styled-select:not(.state){
+    width: 200px !important; 
+  }
+  .styled-select:not(.state) select{
+    width: 160px !important;
+    font: 11px Lato !important;
+  }
 .styled-select {
-   /*top: 125px;*/
-   width: 280px;
+
    height: 45px;
    overflow: hidden;
    background: url(../images/new_arrow.png) no-repeat right #EFEFEF;
@@ -497,9 +667,8 @@ select::-ms-expand {
 
 .styled-select.state{
   /*display: none;*/
-  /*top: 74px;*/
-  left: 150px;
-  top: 265px;
+  top: 74px;
+  left: 240px;
   width: 120px;
   height: 45px;
   overflow: hidden;
@@ -522,8 +691,8 @@ select::-ms-expand {
 #stateName{
   z-index: 9;
   position: fixed;
-  top: 270px;
-  left: 10px;
+    top: 3px;
+    left: 17px;
   font-size: 24px;
 }
 
@@ -539,36 +708,24 @@ outline:none;
 }
 
 .offender-type{
-  top: 300px;
-  left: 10px;
+  left: 17px;
+  top: 200px;
 }
 .amount-type{
-  top: 350px;
-  left: 10px;
+  left: 17px;
+  top: 260px;
 }
 .reduction-type{
-  top: 400px;
-  left: 10px;
+  left: 17px;
+  top: 320px;
 }
 
-#title{
-  position: fixed;
-  font-size: 26px;
-  color: #333;
-  font-weight: 300;
-  /* letter-spacing: 1.5px; */
-  left: 10px;
-  top: 0px;
-}
 
 /*Tooltip styles*/
 #tooltip{
-  width: calc(100% - 350px);
-  max-width: 270px;
   z-index: 10;
   position: fixed;
-  /*bottom: 10%;*/
-  top: 250px;
+  top: 184px;
   left: 3000px;
   background-color: rgba(255,255,255,.8);
 }
@@ -599,21 +756,7 @@ outline:none;
   margin-left: 0px;
   margin-right: 0px;
 }
-#tooltip span.proj{
-  color: #ec008c;
-  float: left;
-  margin-right: 5px;
-}
 
-.summary, .defaultSummary{
-  /*width: calc(100% - 350px);*/
-  width: 100%;
-  font-size: 15px;
-  font-weight: 500;
-  color: #ec008c;
-  margin-top: 10px;
-  line-height: 1em;
-}
 
 .summary span{
   float: none;
@@ -839,7 +982,7 @@ outline:none;
 
 .refresh{
  z-index: 3;
- display: block;
+ display: none !important;
  position: fixed;
    top: 125px;
    left: 950px;
@@ -907,6 +1050,7 @@ font-size: 0.75em;
 }
 
 #footer{
+  display: none;
   background-color: #f3f3f3;
   padding:25px;
   width: 100%;
@@ -914,28 +1058,14 @@ font-size: 0.75em;
   margin-bottom: 15px;
 }
 
-#embedModal{
-  display: none;
-  width: 70%;
-  background-color: #f3f3f3;
-  height: 70%;
-  z-index: 60;
-  position: fixed;
-  top: 15%;
-  left: 15%;
-  -webkit-box-shadow: 5px 7px 20px 8px rgba(119,119,119,1);
-  -moz-box-shadow: 5px 7px 20px 8px rgba(119,119,119,1);
-  box-shadow: 5px 7px 20px 8px rgba(119,119,119,1);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 13px 2px rgba(204,204,204,1);
+#footer p{
+    font-size: 12px;
+    font-style: italic;
+    line-height: 19px;
 }
-#embedModal h2, #embedModal p{
-  text-align: center;
-}
-#embedModal textarea{
-    width: 80%;
-    left: 10%;
-    position: absolute;
+
+textarea{
+  width: 100%;
 }
 
 /*IE JUNK*/

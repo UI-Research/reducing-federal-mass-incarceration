@@ -1,11 +1,33 @@
-var PINK = "#ec008c"
+function getQueryVariable(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+}
+var version = getQueryVariable("version")
+var PINK = (version=="a") ? "#ec008c" : "#ec008c"
+if(version == "b"){
+  d3.select("body").classed("versionB", true)
+}
+else{
+  d3.select("body").classed("versionA", true)
+}
+
+
+
+
+// var PINK = "#ec008c"
 var BLUE = "#1696d2"
 var DARK_GREY = "#868686"
 var LIGHT_GREY = "#efefef"
 var PRISONERS = d3.format(",f")
-var DATE = d3.time.format("%b, %Y")
+var DATE = d3.time.format("%bt, %Y")
 var PERCENT = d3.format("%")
-var isMobile = (d3.select(".mobile.logo").style("display") == "block")
+var isMobile = (d3.select("#menuContainer").style("display") == "none")
 var stateMenu = (isMobile) ? ".styled-select.state.mobile" : ".styled-select.state:not(.mobile)";
 function detectIE() {
     var ua = window.navigator.userAgent;
@@ -41,7 +63,7 @@ if(isMobile){d3.select("#chart").style("height","400px")}
 
 if(isMobile){
   d3.select(".summary")
-    .html("Down \<span id = \"amount\"\>\<\/span\> by December 2021, compared with the baseline projection.")
+    .html("Down \<span id = \"amount\"\>\<\/span\> by 2023, compared with the baseline projection.")
 }
 if(!isMobile){
   d3.select(window).on('resize', function(){
@@ -76,10 +98,8 @@ function hideTooltip(){
 }
 function drawTooltip(offender, reduction, amount){
     // console.log(d3.select("#tooltip"))
-  
-  // var isMobile = (d3.select(".mobile.logo").style("display") == "none")
-  // console.log(d3.select(".mobile.logo").style("display"), isMobile)
-  var left = (isMobile) ? "17px" : "330px";
+
+  var left = (isMobile) ? "17px" : "230px";
   d3.select("#tooltip")
     .transition()
     .style("left", left)
@@ -114,12 +134,13 @@ function drawTooltip(offender, reduction, amount){
 
   d3.select(".summary")
     .style("display", "block")
-  // d3.select(".defaultSummary #amount")
+
   d3.select(".summary #amount")
     .text(function(){
       var state = d3.select(stateMenu + " select").node().value;
-      var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Dec2021.val")).text();
-      var valBase = d3.select((".xLabel.Dec2021.val")).text();
+      
+      var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Sept2023.val")).text();
+      var valBase = d3.select((".xLabel.Sept2023.val")).text();
       valBase = parseFloat(valBase.replace(",",""));
       val2022 = parseFloat(val2022.replace(",",""));
       numDiff = val2022 - valBase
@@ -156,7 +177,7 @@ function selectSeries(offender, reduction, amount){
     var newClass = (offender !== "" && reduction !== "" && amount !== "") ? "menuSelected" : "highlighted";
     if (offender !== "" && reduction !== "" && amount !== ""){ drawTooltip(offender, reduction, amount)}
 
-    var offenders = [".violent", ".nonviolent", ".all", ".drug", ".property", ".revocation"]
+    var offenders = [".violent", ".drug", ".weapon", ".immigration", ".revocation", ".sex", ".fraud", ".all"]
     var reductions = [".new", ".length"]
     var amounts = [".five", ".fifteen", ".twentyFive", ".fifty"]
     var vars = [];
@@ -218,21 +239,21 @@ function drawGraphic(state){
     //   m.style("color", "#818385")
     // }else{ m.style("color", "#333")}
   // console.log(state);
-  var offenders = ["violent", "nonviolent", "all", "drug", "property", "revocation"]
+  var offenders = ["violent", "drug", "weapon", "immigration", "revocation", "sex", "fraud", "all"]
   var reductions = ["new", "length"]
   var amounts = ["five", "fifteen", "twentyFive", "fifty"]
 
   d3.select("#chart svg").remove();
-  var isMobile = (d3.select(".mobile.logo").style("display") == "block")
-  var leftMargin = (isMobile) ? 20 : 20;
-  var margin = {top: 90, right: 50, bottom: 10, left: leftMargin};
+  var isMobile = (d3.select("#menuContainer").style("display") == "none")
+  var leftMargin = (isMobile) ? 20 : 70;
+  var margin = {top: 120, right: 80, bottom: 130, left: leftMargin};
   var width = (window.innerWidth - margin.left - margin.right > 1500) ? 1500 : window.innerWidth - margin.left - margin.right ;
-  var height = window.innerHeight - margin.top - margin.bottom;
+  var height = window.innerHeight - margin.top - margin.bottom + 120;
 
   // console.log(isMobile)
   if(isMobile){ height = height/2}
 
-  var parseDate = d3.time.format("%b-%y").parse;
+  var parseDate = d3.time.format("%m/%d/%y").parse;
 
 
   var x = d3.time.scale()
@@ -255,10 +276,10 @@ function drawGraphic(state){
       .tickFormat(function(d){
         return d/1000
       });
-  var yRight = (window.innerWidth - margin.left - margin.right > 1500) ? (window.innerWidth - margin.left - margin.right-1500-10) : -10;
+  var yRight = (window.innerWidth - margin.left - margin.right > 1500) ? (window.innerWidth - margin.left - margin.right-1500-5) : -5;
   d3.select("#yLabel")
     .style("right", yRight + "px")
-    .text(function(){ var yText = (isMobile) ? "Statewide prison pop. (thousands)" : "Statewide prison population (thousands)"; return yText;})
+    .text(function(){ var yText = (isMobile) ? "Federal prison pop. (thousands)" : "Federal prison population (thousands)"; return yText;})
   var line = d3.svg.line()
       .defined(function(d) { return d.series != 0; })
       .x(function(d) { return x(d.date); })
@@ -271,12 +292,45 @@ function drawGraphic(state){
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 
+  var gradient = svg.append("svg:defs")
+    .append("svg:linearGradient")
+      .attr("id", "gradient")
+      .attr("x1", "0%")
+      .attr("y1", "40%")
+      .attr("x2", "0%")
+      .attr("y2", "100%")
+      .attr("spreadMethod", "pad");
+
+  gradient.append("svg:stop")
+      .attr("offset", "0%")
+      .attr("stop-color", "#fff")
+      .attr("stop-opacity", 1);
+
+  gradient.append("svg:stop")
+      .attr("offset", "100%")
+      .attr("stop-color", "#fff")
+      .attr("stop-opacity", 0);
+
+  svg.append("rect")
+      .attr("class", "scrollFade gradient")
+      .attr("x",-50)
+      .attr("y",83-69-120)
+      .attr("width", 350)
+      .attr("height", 148)
+      .attr("fill", "url(#gradient)")
+  svg.append("rect")
+      .attr("class", "scrollFade solid")
+      .attr("x",-50)
+      .attr("y",-120)
+      .attr("width", 350)
+      .attr("height", 83-67)
+      .attr("fill", "#fff")
 
 
 
+  d3.csv("data/USA_data.csv", function(error, data) {
+        
 
-
-  d3.csv("data/test_data.csv", function(error, data) {
     if (error) throw error;
     // console.log(data)
     data.forEach(function(d) {
@@ -284,8 +338,8 @@ function drawGraphic(state){
       d.date = parseDate(d.date);
     });
 
-    var headers = d3.keys(data[0]).filter(function(key) { return (key !== "date" && key.indexOf("ALL_STATES") != -1); })
-    var STATES = ["ALL_STATES","AL","GA","KY","MI","MN","MO","NJ","NY","OK","RI","SC","TX","UT","WA","WY"]
+    var headers = d3.keys(data[0]).filter(function(key) { return (key !== "date" && key.indexOf("USA") != -1); })
+    var STATES = ["USA"]
     var series = headers.map(function(name) {
       return {
         name: name,
@@ -294,9 +348,9 @@ function drawGraphic(state){
             var values = {}
             values.date = d.date;
             values.series = d[name]
-            values.ALL_STATES = d[name]
+            values.USA = d[name]
             for(var i = 0; i<= STATES.length; i++){
-              values[STATES[i]] = d[name.replace("ALL_STATES", STATES[i])]
+              values[STATES[i]] = d[name.replace("USA", STATES[i])]
             }
             return values;
             // return {date: d.date, series: +d[name]};
@@ -310,7 +364,7 @@ function drawGraphic(state){
 
 
     x.domain(d3.extent(data, function(d) {
-      return newDate = d3.time.month.offset(d.date, 0);
+      return newDate = d3.time.month.offset(d.date, 3);
       // return d.date; 
     }));
     // console.log(series)
@@ -531,8 +585,11 @@ function drawGraphic(state){
             .classed("selected", false)
           .style("display", function(d){
             if(d.series != 0){ return "block" }
-            else{ return "none" }
-            
+            else{
+              d3.select(d3.select(this).node().parentNode)
+                .select(".trigger")
+                .style("pointer-events", "none")
+              return "none" }
           })
             // .attr("fill", BLUE)
 
@@ -557,7 +614,7 @@ function drawGraphic(state){
             })
             .text(function(d){
               if(d.date !== null){
-                return DATE(d.date);
+                return DATE(d.date).replace(",",".");
               }
             })
             .attr("x", function(d){ return x(d.date) })
@@ -615,7 +672,7 @@ function drawGraphic(state){
                 var dx = parseInt(d3.select(this).attr("x"))
                 return dx+15
               })
-            d3.select(".xLabel.last").text("Dec, 2021 (baseline)")
+            d3.select(".xLabel.last").text("Sept. 2023 (baseline)")
               // console.log(terminalSeries)
               d3.select(d3.select(".xLabel.last").node().parentNode)
                 .append("line")
@@ -664,7 +721,7 @@ function drawGraphic(state){
                 .attr("class", "dotted")
                 .attr("x1",function(d){ return x(lastDate) })
                 .attr("x2",function(d){ return x(lastDate) })
-                .attr("y1",function(d){ return y(lastSeries) - 50})
+                .attr("y1",function(d){ return y(lastSeries) - 90})
                 .attr("y2",function(d){ return y(lastSeries) + 140})
                 .attr("stroke-dasharray", "2,5")
                 .style("stroke", "#A7AAAD")
@@ -715,6 +772,28 @@ function drawGraphic(state){
             d3.selectAll(".mouseoverText." + DATE(firstDate).replace(",","").replace(/ /g,"")).remove();
             d3.selectAll(".mouseoverBackground." + DATE(firstDate).replace(",","").replace(/ /g,"")).remove();
 
+
+
+
+            // d3.select("#main-text")
+            //   .style("width", function(){
+            //     var graphMargin = margin.left
+            //     var textMargin = parseInt(d3.select(this).style("left").replace("px",""))
+            //     var w = x(lastDate)-textMargin+graphMargin
+            //   d3.selectAll(".scrollFade").attr("width", w + 50)
+            //   d3.select(".state.mobile")
+            //     .style("width", function(){  return w+24 + "px"})
+            //     // d3.select("#tooltip").style("left", (x(lastDate) + graphMargin + textMargin) + "px")
+            //   d3.select("#footer").style("width",function(){ return (w - 40) + "px"})
+            //   d3.select("#tooltip").datum({"left": (x(lastDate) + graphMargin + textMargin) + "px"})
+            //   // d3.select("#helpText").style("left", (x(lastDate) + graphMargin + textMargin) + "px")
+            //     return w + "px"
+            //   });
+
+            d3.select("tooltip")
+              .style("left", function(){
+                  var w = x(lastDate)-textMargin+graphMargin
+              })
           }
           return "line highlighted " + d.name
         })
@@ -722,10 +801,22 @@ function drawGraphic(state){
       d3.selectAll(".highlighted.actual").classed("highlighted", false)
       d3.selectAll(".highlighted.noPolicy").classed("highlighted", false)
 
+      function moveText(amount){
+        var h = window.innerHeight;
+        var pix = (amount/100.) * innerHeight;
+        d3.select(".scrollFade.solid")
+          .attr("height", (pix - 67))
+        d3.select(".scrollFade.gradient")
+          .attr("y", (pix - 69 - 120))
+        d3.select("#main-text")
+          .transition()
+          .duration(1200)
+          .style("top", (pix+130) + "px")
+      }
       changeState(state, "init")
       function changeState(state, trigger){
         d3.select(stateMenu + " select").node().value = state;
-        // if(trigger == "inline" && state != "ALL_STATES" && state != "TX"){
+        // if(trigger == "inline" && state != "USA" && state != "TX"){
         //   d3.selectAll(".actual")
         //     // .transition()
         //     .style("opacity",".2")
@@ -735,6 +826,58 @@ function drawGraphic(state){
         //     // .transition()
         //     .style("opacity","1")
         // }
+        if(trigger != "isnline" && !isMobile){
+          switch(state){
+            case "USA":
+              moveText(21);
+              break;
+            case "AL":
+              moveText(35);
+              break;
+            case "GA":
+              moveText(31);
+              break;
+            case "KY":
+              moveText(46);
+              break;
+            case "MI":
+              moveText(28);
+              break;
+            case "MN":
+              moveText(46);
+              break;
+            case "MO":
+              moveText(31);
+              break;
+            case "NJ":
+              moveText(30);
+              break;
+            case "NY":
+              moveText(32);
+              break;
+            case "OK":
+              moveText(34);
+              break;
+            case "RI":
+              moveText(34);
+              break;
+            case "SC":
+              moveText(28);
+              break;
+            case "TX":
+              moveText(21);
+              break;
+            case "UT":
+              moveText(41);
+              break;
+            case "WA":
+              moveText(30);
+              break;
+            case "WY":
+              moveText(29);
+              break;
+          }
+        }
     if(trigger != "init"){
         var stateName = d3.select("option[value="+state+"]").text();
         d3.select("#stateName")
@@ -747,8 +890,8 @@ function drawGraphic(state){
           })
         d3.select(".summary #state")
           .text(function(){
-            if(state == "ALL_STATES"){
-              return "the aggregate"
+            if(state == "USA"){
+              return "the federal"
             }
             return stateName + "\'s";
           })
@@ -836,7 +979,7 @@ function drawGraphic(state){
 
         d3.select(".xLabel.first.date")
           .text(function(d){
-            return DATE(firstDate);
+            return DATE(firstDate).replace(",",".");
           });
         d3.select(".xLabel.first.val")
           .text(function(d){
@@ -874,20 +1017,21 @@ function drawGraphic(state){
         .delay(600)
         .duration(1200)
         .attr("opacity",1)
-        d3.select(".defaultSummary #defState")
-        .text(function(){
-            if(state == "ALL_STATES"){
-              return "the states do"
-            } else{
-              return d3.select("option[value="+state+"]").text() + " does"
-            }
-        });
 
-        d3.select(".defaultSummary #defAmount")
-        .text(function(){
-          var val2022 = d3.select((".xLabel.Dec2021.val")).text();
-          return val2022;
-        });
+      d3.select(".defaultSummary #defState")
+      .text(function(){
+          if(state == "USA"){
+            return "the federal government does"
+          } else{
+            return d3.select("option[value="+state+"]").text() + " does"
+          }
+      });
+
+      d3.select(".defaultSummary #defAmount")
+      .text(function(){
+        var val2022 = d3.select((".xLabel.Sept2023.val")).text();
+        return val2022;
+      });
       }
     }
       d3.select(stateMenu + " select")
@@ -931,6 +1075,24 @@ d3.select("#hamburger img")
 d3.select("#mobileClose")
   .on("click", function(){
     d3.selectAll(".mobileHide").style("display", "none")
+  })
+d3.select(".hideChart")
+  .on("click", function(){
+    var hidden = ( d3.selectAll(".hideAll").style("display") == "none" )
+    if(hidden){
+      d3.select(this).text("HIDE CHART")
+      d3.selectAll(".hideAll:not(.mobileHide)").style("display","block")
+      d3.select("#chart").style("height","400px")
+      d3.select(".hideChart").style("top","380px")
+      d3.select("#main-text").style("margin-top","210px")
+    }
+    else{
+      d3.select(this).text("SHOW CHART")
+      d3.selectAll(".hideAll").style("display","none")
+      d3.select("#chart").style("height","44px")
+      d3.select(".hideChart").style("top","20px")
+      d3.select("#main-text").style("margin-top","-120px")
+    }
   })
 $(".styled-select.filter").click(function () {
     var element = $(this).children("select")[0],
