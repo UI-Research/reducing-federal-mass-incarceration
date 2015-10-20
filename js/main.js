@@ -1096,10 +1096,10 @@ $(".styled-select.filter").click(function () {
         worked = false;
     if(document.createEvent) { // all browsers
         var e = document.createEvent("MouseEvents");
-        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false,       false, false, false, 0, null);
+        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
         worked = element.dispatchEvent(e);
+        console.log("foo", element, e, worked)
     } else if (element.fireEvent) { // ie
-      console.log("foo")
         worked = element.fireEvent("onmousedown");
     }
     if (!worked) { // unknown browser / error
