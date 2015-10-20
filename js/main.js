@@ -1100,11 +1100,15 @@ $(".styled-select.filter").click(function () {
         worked = element.dispatchEvent(e);
         console.log("foo", element, e, worked)
     } else if (element.fireEvent) { // ie
+        console.log("bar", element, e, worked)
+
         worked = element.fireEvent("onmousedown");
     }
     if (!worked) { // unknown browser / error
         alert("It didn't worked in your browser.");
     }
+    console.log("foobar", element, e, worked)
+
 });
 
 d3.selectAll(".styled-select.filter select")
