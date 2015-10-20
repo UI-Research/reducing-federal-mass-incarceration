@@ -1110,9 +1110,6 @@ $(".styled-select.filter").click(function () {
 });
 
 d3.selectAll(".styled-select.filter select")
-  // .style("color", function(){
-  //   console.log(d3.select(this).node().value)
-  // })
   .on("change", function(){
     selectSeries(d3.select(".offender-type select").node().value, d3.select(".reduction-type select").node().value, d3.select(".amount-type select").node().value)
     var m = d3.select(this);
@@ -1120,8 +1117,11 @@ d3.selectAll(".styled-select.filter select")
       m.style("color", "#818385")
     }else{ m.style("color", "#333")}
     console.log(this)
+    $("#stateName").click();
     $(this).blur();
   })
+
+d3.select("#stateName").on("click", function(){ console.log("yo")})
 function checkReady() {
     var drawn = d3.select("#chart svg .series").node();
     if (drawn == null) {
