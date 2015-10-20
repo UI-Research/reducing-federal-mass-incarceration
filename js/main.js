@@ -1119,12 +1119,8 @@ d3.selectAll(".styled-select.filter select")
     if(m.node().value == ""){
       m.style("color", "#818385")
     }else{ m.style("color", "#333")}
-    console.log(this)
-    $("#stateName").click();
-    $(this).blur();
   })
 
-d3.select("#stateName").on("click", function(){ console.log("yo")})
 function checkReady() {
     var drawn = d3.select("#chart svg .series").node();
     if (drawn == null) {
