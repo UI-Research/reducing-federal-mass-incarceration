@@ -1095,24 +1095,18 @@ $(".styled-select.filter").click(function () {
     var element = $(this).children("select")[0],
         worked = false;
     if ($(element).is(':active')) {
-      console.log("farts")
       return;
     }
     else if(document.createEvent) { // all browsers
         var e = document.createEvent("MouseEvents");
         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
         worked = element.dispatchEvent(e);
-        console.log("foo", element, e, worked)
     } else if (element.fireEvent) { // ie
-        console.log("bar", element, e, worked)
-
         worked = element.fireEvent("onmousedown");
     }
     if (!worked) { // unknown browser / error
         alert("It didn't worked in your browser.");
     }
-    console.log("foobar", element, e, worked)
-
 });
 
 d3.selectAll(".styled-select.filter select")
@@ -1125,6 +1119,7 @@ d3.selectAll(".styled-select.filter select")
     if(m.node().value == ""){
       m.style("color", "#818385")
     }else{ m.style("color", "#333")}
+    console.log(this)
     $(this).blur();
   })
 function checkReady() {
