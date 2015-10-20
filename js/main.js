@@ -1094,6 +1094,7 @@ d3.select(".hideChart")
 $(".styled-select.filter").click(function () {
     var element = $(this).children("select")[0],
         worked = false;
+    if ($(element).is(':active')) return;
     if(document.createEvent) { // all browsers
         var e = document.createEvent("MouseEvents");
         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
