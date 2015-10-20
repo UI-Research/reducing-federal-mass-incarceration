@@ -1125,6 +1125,7 @@ d3.selectAll(".styled-select.filter select")
     if(m.node().value == ""){
       m.style("color", "#818385")
     }else{ m.style("color", "#333")}
+    $(this).blur();
   })
 function checkReady() {
     var drawn = d3.select("#chart svg .series").node();
