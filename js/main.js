@@ -7,17 +7,15 @@ function getQueryVariable(variable) {
             return decodeURIComponent(pair[1]);
         }
     }
-    console.log('Query variable %s not found', variable);
 }
 var version = getQueryVariable("version")
-var PINK = (version=="a") ? "#ec008c" : "#ec6109"
+var PINK = (version=="a") ? "#ec008c" : "#ec008c"
 if(version == "b"){
   d3.select("body").classed("versionB", true)
 }
 else{
   d3.select("body").classed("versionA", true)
 }
-console.log(PINK)
 
 
 
@@ -140,7 +138,6 @@ function drawTooltip(offender, reduction, amount){
   d3.select(".summary #amount")
     .text(function(){
       var state = d3.select(stateMenu + " select").node().value;
-      console.log(offender, reduction, amount)
       var val2022 = d3.select(("g." + offender + "." + reduction + "." + amount + " .mouseoverText.Sept2023.val")).text();
       var valBase = d3.select((".xLabel.Sept2023.val")).text();
       valBase = parseFloat(valBase.replace(",",""));
@@ -331,8 +328,6 @@ function drawGraphic(state){
 
 
   d3.csv("data/USA_data.csv", function(error, data) {
-        console.log(data)
-
     if (error) throw error;
     // console.log(data)
     data.forEach(function(d) {
@@ -1104,6 +1099,7 @@ $(".styled-select.filter").click(function () {
         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false,       false, false, false, 0, null);
         worked = element.dispatchEvent(e);
     } else if (element.fireEvent) { // ie
+      console.log("foo")
         worked = element.fireEvent("onmousedown");
     }
     if (!worked) { // unknown browser / error

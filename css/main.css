@@ -29,7 +29,7 @@ cursor: pointer;
 }
 
 body.versionB .line.selected, body.versionB .line.menuSelected{
-  stroke: #ec6109 !important;
+  stroke: #ec008c !important;
 }
 body.versionA .line.selected, body.versionA .line.menuSelected{
   stroke: #ec008c !important;
@@ -42,7 +42,7 @@ body.versionA .dot.selected, body.versionA .dot.menuSelected{
   /*pointer-events: visible;*/
 }
 body.versionB .dot.selected, body.versionB .dot.menuSelected{
-  fill: #ec6109 !important;
+  fill: #ec008c !important;
   /*pointer-events: visible;*/
 }
 
@@ -52,7 +52,7 @@ body.versionA #tooltip span.proj{
   margin-right: 5px;
 }
 body.versionB #tooltip span.proj{
-  color: #ec6109;
+  color: #ec008c;
   float: left;
   margin-right: 5px;
 }
@@ -69,7 +69,7 @@ body.versionB .summary, body.versionB .defaultSummary{
   width: 280px;
   font-size: 18px;
   font-weight: 500;
-  color: #ec6109;
+  color: #ec008c;
   margin-top: 20px;
   line-height: 1em;
 }
