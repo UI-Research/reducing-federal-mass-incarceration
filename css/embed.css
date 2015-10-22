@@ -1,4 +1,13 @@
-
+#disclaimer{
+  position: fixed;
+  bottom: 0px;
+  font-size: 10px;
+  padding-left: 78px;
+  padding-right: 90px;
+}
+#disclaimer div{
+  padding-bottom: 8px;
+}
 
 .scrollFade{
   opacity: 0;
