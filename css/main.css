@@ -75,7 +75,9 @@ body.versionB .summary, body.versionB .defaultSummary{
 }
 /*********** END of A/B CSS **************/
 
-
+body{
+  background: white;
+}
 
 .state.styled-select{
   display: none !important;
