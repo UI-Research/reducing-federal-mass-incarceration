@@ -93,7 +93,9 @@ body.versionB .summary, body.versionB .defaultSummary{
   line-height: 1em;
 }
 /*********** END of A/B CSS **************/
-
+body{
+  background: white;
+}
 
 
 .state.styled-select{
