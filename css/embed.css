@@ -304,7 +304,7 @@ body{
       z-index: 21;
     }
     #hamburger img{
-      width: 52%; 
+      width: 200px; 
       pointer-events: visible;
       position: fixed;
       top: 200px;
