@@ -311,7 +311,7 @@ body{
      line-height: 1;
      border: 0;
      border-radius: 0;
-     -webkit-appearance: none;
+     /*-webkit-appearance: none;*/
   }
   .styled-select.state {
      /*display: block;*/
@@ -622,7 +622,7 @@ background-color: #D0E9F4;
 */
 
 .styled-select.filter select{
-  pointer-events: none; /*NOT SURE ABOUT THIS IN IE NEED TO TEST*/
+  /*pointer-events: none; NOT SURE ABOUT THIS IN IE NEED TO TEST*/
 }
 /*Dropdowns*/
 .styled-select select {

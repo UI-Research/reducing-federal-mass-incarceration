@@ -1091,23 +1091,23 @@ d3.select(".hideChart")
       d3.select("#main-text").style("margin-top","-120px")
     }
   })
-$(".styled-select.filter").click(function () {
-    var element = $(this).children("select")[0],
-        worked = false;
-    if ($(element).is(':active')) {
-      return;
-    }
-    else if(document.createEvent) { // all browsers
-        var e = document.createEvent("MouseEvents");
-        e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-        worked = element.dispatchEvent(e);
-    } else if (element.fireEvent) { // ie
-        worked = element.fireEvent("onmousedown");
-    }
-    if (!worked) { // unknown browser / error
-        alert("It didn't worked in your browser.");
-    }
-});
+// $(".styled-select.filter").click(function () {
+//     var element = $(this).children("select")[0],
+//         worked = false;
+//     if ($(element).is(':active')) {
+//       return;
+//     }
+//     else if(document.createEvent) { // all browsers
+//         var e = document.createEvent("MouseEvents");
+//         e.initMouseEvent("mousedown", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+//         worked = element.dispatchEvent(e);
+//     } else if (element.fireEvent) { // ie
+//         worked = element.fireEvent("onmousedown");
+//     }
+//     if (!worked) { // unknown browser / error
+//         alert("It didn't worked in your browser.");
+//     }
+// });
 
 d3.selectAll(".styled-select.filter select")
   .on("change", function(){
